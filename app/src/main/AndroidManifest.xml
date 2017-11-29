@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BingoCard"></activity>
+        <activity android:name=".BingoCard" />
+        <activity android:name=".CustomCard"></activity>
     </application>
 
 </manifest>

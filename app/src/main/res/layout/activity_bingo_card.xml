@@ -7,15 +7,44 @@
     tools:context="com.example.kelseybedard.roadtripbingo.BingoCard">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/exitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/exit"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="70dp"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="44dp"
-        android:layout_marginRight="70dp" />
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:onClick="exitClick"
+        android:text="@string/exit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintRight_creator="1" />
+
+    <Button
+        android:id="@+id/clearCardButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="77dp"
+        android:layout_marginStart="77dp"
+        android:onClick="clearClick"
+        android:text="@string/clear_card"
+        app:layout_constraintBaseline_toBaselineOf="@+id/exitButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <Button
+        android:id="@+id/BingoButton"
+        android:layout_width="209dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="69dp"
+        android:onClick="bingoClick"
+        android:text="@string/bingo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 </android.support.constraint.ConstraintLayout>
