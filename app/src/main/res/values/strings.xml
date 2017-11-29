@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">RoadTripBingo</string>
+    <string name="play_Bingo">Play Bingo</string>
+    <string name="editCard1">Edit Custom Card 1</string>
+    <string name="editCard2">Edit Custom Card 2</string>
+    <string name="bingo">Bingo!</string>
+    <string name="exit">Exit</string>
+    <string name="clear_card">Clear Card</string>
+    <string name="save_Exit">Save and Exit</string>
 </resources>
