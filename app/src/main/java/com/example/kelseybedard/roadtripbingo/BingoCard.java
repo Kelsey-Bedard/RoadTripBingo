@@ -12,6 +12,9 @@ public class BingoCard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bingo_card);
         //This is were we will set the card up based on if it was custom or random
+
+        //Use this tutorial to add items to grid view
+        //https://developer.android.com/guide/topics/ui/layout/gridview.html
     }
 
     //Player want to exit the game and return to main menu

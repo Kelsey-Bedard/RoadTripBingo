@@ -4,47 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.kelseybedard.roadtripbingo.BingoCard">
+    tools:context="com.example.kelseybedard.roadtripbingo.BingoCard"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
     <Button
         android:id="@+id/exitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginRight="70dp"
+        android:layout_marginEnd="58dp"
         android:onClick="exitClick"
         android:text="@string/exit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintRight_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/gridView"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/gridView"
+        android:layout_marginRight="58dp" />
 
     <Button
         android:id="@+id/clearCardButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="77dp"
-        android:layout_marginStart="77dp"
+        android:layout_marginStart="65dp"
         android:onClick="clearClick"
         android:text="@string/clear_card"
-        app:layout_constraintBaseline_toBaselineOf="@+id/exitButton"
-        app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        android:layout_marginBottom="44dp"
+        app:layout_constraintLeft_toLeftOf="@+id/gridView"
+        android:layout_marginLeft="65dp" />
 
     <Button
         android:id="@+id/BingoButton"
         android:layout_width="209dp"
         android:layout_height="48dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="69dp"
         android:onClick="bingoClick"
         android:text="@string/bingo"
+        android:layout_marginTop="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintLeft_creator="1" />
+
+    <GridView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/gridView"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        android:layout_marginStart="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/clearCardButton"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="57dp"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        android:layout_marginBottom="58dp"
+        app:layout_constraintTop_toTopOf="@+id/BingoButton"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp" />
 </android.support.constraint.ConstraintLayout>
