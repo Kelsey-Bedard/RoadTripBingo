@@ -8,7 +8,6 @@ import java.util.List;
 
 public class BingoCard {
 
-    public List<String> catagories;     //list of all the different catagories that items can be organized in
     List<BingoTile> board;       //Set up of twenty four times with a free space (total of 25 items)
     public List<String> gameTypes;     //List of different Bingo games a user can play
     String gameType;            //Game type selected by user
@@ -16,7 +15,6 @@ public class BingoCard {
 
     public BingoCard(){
 
-        catagories = Arrays.asList("Animals","Vehicles","Generic","Stores","Colored Cars");
         gameTypes = Arrays.asList("Line","Blackout","Four Corners");
 
         //create BingoTileLibrary here
@@ -32,13 +30,13 @@ public class BingoCard {
     public List<String> generateRandomBoard(){
 
 
-        return catagories; //Will not be returning this in final product
+        return gameTypes; //Will not be returning this in final product
     }
 
     //will get the custom board based on what cardNumber is sent and than return the list of string for the icon image
     public List<String> generateCustomCard(int cardNumber){
 
-        return catagories; //will not be returning this in final product
+        return gameTypes; //will not be returning this in final product
     }
 
     //When a tile is selected, either select or un-select it

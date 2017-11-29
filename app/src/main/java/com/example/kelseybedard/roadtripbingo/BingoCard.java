@@ -30,7 +30,7 @@ public class BingoCard extends AppCompatActivity {
 
     }
 
-    //A player get a bingo
+    //A player gets a bingo
     public void bingoClick(View v){
         //pop up menu get activated here?
     }
