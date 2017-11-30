@@ -25,15 +25,13 @@ public class CustomCard extends AppCompatActivity {
     //User wants to exit custom card and return to main menu
     public void exitClick (View view){
         //Add warning that player is leaving without saving
-        Intent intent = new Intent(this, BingoCard.class);
-        startActivity(intent);
+        finish();
     }
 
     //User wants to save their custom card and return to main menu
     public void saveAndExitClick (View view){
         //Will save data from board here when before exiting
 
-        Intent intent = new Intent(this, MainMenu.class);
-        startActivity(intent);
+        finish();
     }
 }

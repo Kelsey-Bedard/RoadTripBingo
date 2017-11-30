@@ -20,8 +20,7 @@ public class BingoCard extends AppCompatActivity {
     //Player want to exit the game and return to main menu
     public void exitClick (View v){
         //Add warning that player is leaving
-        Intent intent = new Intent(this, MainMenu.class);
-        startActivity(intent);
+        finish();
     }
 
     //Player wants to clear their card

@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -9,14 +11,50 @@ public class BingoTileLibrary {
 
     List<BingoTile> tiles;
     public List<String> catagories;     //list of all the different catagories that items can be organized in
+    public List<BingoTile> customCard1;
+    public List<BingoTile> customCard2;
 
 
     public BingoTileLibrary(){
-        catagories = Arrays.asList("Animals","Vehicles","Generic","Stores","Colored Cars");
+        catagories = Arrays.asList("Animals","Vehicles","Generic","Stores","Colored Cars", "Free Space");
         tileSetUp();
 
     }
 
+    //getting Random board
+    public List<BingoTile> getRandomBoard(){
+        List <BingoTile> allTiles = new ArrayList<BingoTile>(tiles.subList(0,tiles.size()-2)); //getting all tiles but the free space tile (last one)
+        List<BingoTile> randomBoard;
+        Collections.shuffle(allTiles);  //randomly shuffles the items in randomBoard
+        randomBoard = allTiles.subList(0,23);
+        randomBoard.add(12,tiles.get(tiles.size()-1)); //retreiving the free space tile and placing it in middle of board (spot 12)
+        return randomBoard;
+    }
+
+    //returns custom board based on the value of board
+    public List<BingoTile> getCustomCard (int board){
+        if (board == 1)
+            return customCard1;
+        else
+            return customCard2;
+    }
+
+    //returns a list of the catagories
+    public List<String> getCatagories (){
+        return catagories;
+    }
+
+    //setting custom card1
+    public void setCustomCard1 (List<BingoTile> card){
+        customCard1 = card;
+    }
+
+    //Setting custom card2
+    public void setCustomCard2 (List<BingoTile> card){
+        customCard2 = card;
+    }
+
+    //Creates all bingo tiles
     private void tileSetUp(){
         //Animals
         tiles.add(new BingoTile("link","Cow",0));
@@ -78,6 +116,12 @@ public class BingoTileLibrary {
 
         //Colored Cars
         tiles.add(new BingoTile("link","Red Car",4));
+        tiles.add(new BingoTile("link","Blue Car",4));
+        tiles.add(new BingoTile("link","Green Car",4));
+        tiles.add(new BingoTile("link","Yellow Car",4));
+        tiles.add(new BingoTile("link","Purple Car",4));
 
+        //Free Space
+        tiles.add(new BingoTile("link","Free Space",5));
     }
 }
