@@ -14,11 +14,30 @@ public class PlayingBingoCard {
     String gameType;            //Game type selected by user
 
 
-    public PlayingBingoCard(){
+    public PlayingBingoCard(int type, int board){
 
         gameTypes = Arrays.asList("Line","Blackout","Four Corners");
 
-        //create com.example.kelseybedard.roadtripbingo.BingoTileLibrary here
+        //setting the type of game we are getting
+        switch (type){
+            case 1: gameType = gameTypes.get(1);
+                    break;
+            case 2: gameType = gameTypes.get(2);
+                    break;
+            case 3: gameType = gameTypes.get(3);
+                    break;
+        }
+
+        //setting which board we are using
+        switch (board){
+            case 1: //is random board
+                break;
+            case 2: //is custom board 1
+                break;
+            case 3: //is custom board 2
+                break;
+        }
+
 
     }
 
@@ -73,19 +92,6 @@ public class PlayingBingoCard {
             System.out.println("Invalid Game Type For Bingo Check");
             return false;
         }
-    }
-
-    //Here we will fill the board with random tiles the middle on being a free space, will return the list of strings for the icon image
-    public List<String> generateRandomBoard(){
-
-
-        return gameTypes; //Will not be returning this in final product
-    }
-
-    //will get the custom board based on what cardNumber is sent and than return the list of string for the icon image
-    public List<String> generateCustomCard(int cardNumber){
-
-        return gameTypes; //will not be returning this in final product
     }
 
     //When a tile is selected, either select or un-select it

@@ -13,12 +13,16 @@ import android.widget.ImageView;
 
 import com.example.kelseybedard.roadtripbingo.R;
 
+import java.util.List;
+
 /**
  * Created by kelseybedard on 12/1/17.
  */
 
 public class ImageAdaptor extends BaseAdapter {
     private Context mContext;
+    // Keep all Images in array
+    public Integer[] mThumbIds = {R.drawable.cat};
 
     // Constructor
     public ImageAdaptor(Context c) {
@@ -55,8 +59,4 @@ public class ImageAdaptor extends BaseAdapter {
         return imageView;
     }
 
-    // Keep all Images in array
-    public Integer[] mThumbIds = {
-            R.drawable.cat, R.drawable.airplane,R.drawable.cow
-    };
 }

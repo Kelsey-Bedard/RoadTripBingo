@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.TextView;
 
 public class CustomCard extends AppCompatActivity {
@@ -20,6 +21,11 @@ public class CustomCard extends AppCompatActivity {
         // Message determines which card is being editted
         TextView textView = (TextView) findViewById(R.id.customCardText);
         textView.setText("Edit Custom Card " + message);
+
+        //Use this tutorial to add items to grid view
+        //https://developer.android.com/guide/topics/ui/layout/gridview.html
+        GridView gridview = (GridView) findViewById(R.id.gridView);
+        gridview.setAdapter(new ImageAdaptor(this));
     }
 
     //User wants to exit custom card and return to main menu
