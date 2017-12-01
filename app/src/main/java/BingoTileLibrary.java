@@ -23,6 +23,7 @@ public class BingoTileLibrary {
 
     //getting Random board
     public List<BingoTile> getRandomBoard(){
+        //Want to include in allTiles only those that are of the first 4 catagories, find different way of doing this?
         List <BingoTile> allTiles = new ArrayList<BingoTile>(tiles.subList(0,tiles.size()-2)); //getting all tiles but the free space tile (last one)
         List<BingoTile> randomBoard;
         Collections.shuffle(allTiles);  //randomly shuffles the items in randomBoard
