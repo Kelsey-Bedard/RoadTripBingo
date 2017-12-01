@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package com.example.kelseybedard.roadtripbingo;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -6,18 +7,18 @@ import java.util.List;
  * Created by kelseybedard on 11/29/17.
  */
 
-public class BingoCard {
+public class PlayingBingoCard {
 
     List<BingoTile> board;       //Set up of twenty four times with a free space (total of 25 items)
     public List<String> gameTypes;     //List of different Bingo games a user can play
     String gameType;            //Game type selected by user
 
 
-    public BingoCard(){
+    public PlayingBingoCard(){
 
         gameTypes = Arrays.asList("Line","Blackout","Four Corners");
 
-        //create BingoTileLibrary here
+        //create com.example.kelseybedard.roadtripbingo.BingoTileLibrary here
 
     }
 
@@ -44,7 +45,7 @@ public class BingoCard {
 
     }
 
-    // changes all tiles to un-selected using BingoTile method selectedFalse
+    // changes all tiles to un-selected using com.example.kelseybedard.roadtripbingo.BingoTile method selectedFalse
     public void clearCard (){
 
     }

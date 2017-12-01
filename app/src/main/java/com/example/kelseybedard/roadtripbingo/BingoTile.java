@@ -1,3 +1,5 @@
+package com.example.kelseybedard.roadtripbingo;
+
 /**
  * Created by kelseybedard on 11/29/17.
  */
@@ -8,7 +10,7 @@ public class BingoTile {
     public int catagory;   //the catagory that icon is in
     public boolean isSelected;  //whether the tile has been selected or not
 
-    //setup of BingoTile
+    //setup of com.example.kelseybedard.roadtripbingo.BingoTile
     public BingoTile(String link, String tileName, int typeOfTile){
         iconImage= link;
         name = tileName;

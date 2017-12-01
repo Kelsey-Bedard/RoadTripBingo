@@ -1,3 +1,5 @@
+package com.example.kelseybedard.roadtripbingo;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -58,8 +60,8 @@ public class BingoTileLibrary {
     //Creates all bingo tiles
     private void tileSetUp(){
         //Animals
-        tiles.add(new BingoTile("link","Cow",0));
-        tiles.add(new BingoTile("link","Horse",0));
+        tiles.add(new BingoTile("cat","Cow",0));
+        tiles.add(new BingoTile("horse.png","Horse",0));
         tiles.add(new BingoTile("link","Dog",0));
         tiles.add(new BingoTile("link","Cat",0));
         tiles.add(new BingoTile("link","Bird",0));

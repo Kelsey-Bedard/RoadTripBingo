@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.GridView;
 
 public class BingoCard extends AppCompatActivity {
 
@@ -15,6 +16,8 @@ public class BingoCard extends AppCompatActivity {
 
         //Use this tutorial to add items to grid view
         //https://developer.android.com/guide/topics/ui/layout/gridview.html
+        GridView gridview = (GridView) findViewById(R.id.gridView);
+        gridview.setAdapter(new ImageAdaptor(this));
     }
 
     //Player want to exit the game and return to main menu
