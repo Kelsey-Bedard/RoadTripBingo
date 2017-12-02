@@ -10,39 +10,14 @@ import java.util.List;
 public class PlayingBingoCard {
 
     List<BingoTile> board;       //Set up of twenty four times with a free space (total of 25 items)
-    public List<String> gameTypes;     //List of different Bingo games a user can play
-    String gameType;            //Game type selected by user
 
 
-    public PlayingBingoCard(int type, int board){
-
-        gameTypes = Arrays.asList("Line","Blackout","Four Corners");
-
-        //setting the type of game we are getting
-        switch (type){
-            case 1: gameType = gameTypes.get(1);
-                    break;
-            case 2: gameType = gameTypes.get(2);
-                    break;
-            case 3: gameType = gameTypes.get(3);
-                    break;
-        }
-
-        //setting which board we are using
-        switch (board){
-            case 1: //is random board
-                break;
-            case 2: //is custom board 1
-                break;
-            case 3: //is custom board 2
-                break;
-        }
-
-
+    public PlayingBingoCard(List<BingoTile> newTiles){
+        board = newTiles;
     }
 
     //Will check if a bingo has taken place, will happen each time a icon is selected/unselected
-    public boolean checkBingo(){
+    public boolean checkBingo(String gameType){
         if(gameType.equals("Four Corners")){
             return board.get(0).isSelected && board.get(4).isSelected && board.get(20).isSelected && board.get(24).isSelected;
         }
@@ -95,12 +70,19 @@ public class PlayingBingoCard {
     }
 
     //When a tile is selected, either select or un-select it
-    public void toggleSelectedTile (int tile){
+    //So far we just toggle the tiles bool, need something to actually change how the image is drawn
+    public void toggleSelectedTile (int tileIndex){
+        BingoTile tileOfInterest = board.get(tileIndex);
+        boolean toggledBool = !tileOfInterest.isSelected;
+
+        tileOfInterest.isSelected = toggledBool;
 
     }
 
     // changes all tiles to un-selected using com.example.kelseybedard.roadtripbingo.BingoTile method selectedFalse
     public void clearCard (){
-
+        for(int i = 0; i < board.size(); i++){
+            board.get(i).isSelected = false;
+        }
     }
 }
