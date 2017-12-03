@@ -32,14 +32,23 @@ public class CustomCard extends AppCompatActivity {
 
     //User wants to exit custom card and return to main menu
     public void exitClick (View view){
-        //Add warning that player is leaving without saving
-        finish();
+        Intent intent = new Intent(this,ExitClick.class);
+        startActivityForResult(intent,2);
+    }
+
+    //https://stackoverflow.com/questions/14292398/how-to-pass-data-from-2nd-activity-to-1st-activity-when-pressed-back-android
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 2) {
+            if(resultCode == RESULT_OK) {
+                finish();
+            }
+        }
     }
 
     //User wants to save their custom card and return to main menu
     public void saveAndExitClick (View view){
         //Will save data from board here when before exiting
-
         finish();
     }
 }

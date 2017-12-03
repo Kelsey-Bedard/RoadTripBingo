@@ -17,8 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".BingoCard" />
-        <activity android:name=".CustomCard"></activity>
-        <activity android:name=".Pop"></activity>
+        <activity android:name=".CustomCard" />
+        <activity android:name=".Pop" />
+        <activity android:name=".ExitClick"></activity>
     </application>
 
 </manifest>
