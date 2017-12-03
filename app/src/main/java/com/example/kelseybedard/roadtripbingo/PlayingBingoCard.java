@@ -14,6 +14,7 @@ public class PlayingBingoCard {
 
     public PlayingBingoCard(List<BingoTile> newTiles){
         board = newTiles;
+        board.get(12).isSelected = true;
     }
 
     //Will check if a bingo has taken place, will happen each time a icon is selected/unselected

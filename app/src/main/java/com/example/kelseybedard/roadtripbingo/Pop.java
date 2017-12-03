@@ -31,5 +31,6 @@ public class Pop extends Activity {
     public void playGame(View v){
         Intent intent = new Intent(this, BingoCard.class);
         startActivity(intent);
+        finish();
     }
 }
