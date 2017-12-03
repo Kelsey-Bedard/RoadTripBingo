@@ -29,7 +29,7 @@ public class Pop extends Activity {
 
     //Play Game Button --> Start game
     public void playGame(View v){
-        Intent intent = new Intent(this, PlayingBingoCard.class);
+        Intent intent = new Intent(this, BingoCard.class);
         startActivity(intent);
     }
 }

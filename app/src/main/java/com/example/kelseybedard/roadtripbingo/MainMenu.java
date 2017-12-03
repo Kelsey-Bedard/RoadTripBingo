@@ -23,7 +23,7 @@ public class MainMenu extends AppCompatActivity {
     //User wishes to play Bingo
     public void playBingoClick (View v){
         //Popup stuff here so we determine what kind of card and game the user wants to play
-        Intent intent = new Intent(MainMenu.this,Pop.class);
+       Intent intent = new Intent(MainMenu.this,Pop.class);
         startActivity(intent);
     }
 
