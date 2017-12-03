@@ -21,7 +21,8 @@
         <activity android:name=".CustomCard" />
         <activity android:name=".Pop" />
         <activity android:name=".ExitClick" />
-        <activity android:name=".findTile"></activity>
+        <activity android:name=".findTile" />
+        <activity android:name=".WarningPage"></activity>
     </application>
 
 </manifest>

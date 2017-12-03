@@ -47,7 +47,7 @@ public class Pop extends Activity {
         int radioButtonID = rg.getCheckedRadioButtonId();
         rb = (RadioButton) findViewById(radioButtonID);
 
-        Toast.makeText(getBaseContext(), rb.getText(), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getBaseContext(), rb.getText(), Toast.LENGTH_SHORT).show();
     }
 
 

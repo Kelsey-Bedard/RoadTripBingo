@@ -49,10 +49,10 @@ public class CustomCard extends AppCompatActivity {
             }
         }
         else {//customCardNumber == 2, we are going to edit custom card 2
-            if (((BingoManager) this.getApplication()).tileLibrary.customCard1 == null) {//if custom card 2 has not been created before
+            if (((BingoManager) this.getApplication()).tileLibrary.customCard2 == null) {//if custom card 2 has not been created before
                 cardWeAreEditing = new PlayingBingoCard(((BingoManager) this.getApplication()).tileLibrary.getCustomCardEditer());//give the user a fresh card to edit
             } else {
-                cardWeAreEditing = new PlayingBingoCard(((BingoManager) this.getApplication()).tileLibrary.customCard1);//load their old card
+                cardWeAreEditing = new PlayingBingoCard(((BingoManager) this.getApplication()).tileLibrary.customCard2);//load their old card
             }
         }
         adaptor.changeImages(cardWeAreEditing.getImages());
@@ -95,7 +95,8 @@ public class CustomCard extends AppCompatActivity {
             finish();
         }
         else{
-            //WARN USER THAT THEY DON'T HAVE A PROPER CUSTOM CARD TO PLAY WITH, DO NOT ALLOW SAVE
+            Intent intent = new Intent(this,WarningPage.class);
+            startActivity(intent);
         }
 
     }
