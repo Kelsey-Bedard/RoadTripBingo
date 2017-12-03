@@ -1,7 +1,12 @@
 package com.example.kelseybedard.roadtripbingo;
 
+import android.graphics.Canvas;
+
 import java.util.Arrays;
 import java.util.List;
+
+import android.support.v4.content.ContextCompat;
+import android.widget.ImageView;
 
 /**
  * Created by kelseybedard on 11/29/17.
@@ -81,10 +86,11 @@ public class PlayingBingoCard {
     //When a tile is selected, either select or un-select it
     //So far we just toggle the tiles bool, need something to actually change how the image is drawn
     public void toggleSelectedTile (int tileIndex){
-        BingoTile tileOfInterest = board.get(tileIndex);
-        boolean toggledBool = !tileOfInterest.isSelected;
-
-        tileOfInterest.isSelected = toggledBool;
+        if (tileIndex != 12){
+            BingoTile tileOfInterest = board.get(tileIndex);
+            boolean toggledBool = !tileOfInterest.isSelected;
+            tileOfInterest.isSelected = toggledBool;
+        }
 
     }
 
@@ -93,5 +99,8 @@ public class PlayingBingoCard {
         for(int i = 0; i < board.size(); i++){
             board.get(i).isSelected = false;
         }
+        board.get(12).isSelected = true;
     }
+
+
 }

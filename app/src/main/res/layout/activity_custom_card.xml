@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <GridView
-        android:id="@+id/gridView"
+        android:id="@+id/customGridView"
         android:layout_width="317dp"
         android:layout_height="339dp"
         android:layout_marginLeft="15dp"
@@ -55,4 +55,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.383" />
+
 </android.support.constraint.ConstraintLayout>

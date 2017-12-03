@@ -26,11 +26,11 @@ public class BingoTileLibrary {
     //getting Random board
     public List<BingoTile> getRandomBoard(){
         //Want to include in allTiles only those that are of the first 4 catagories, find different way of doing this?
-        List <BingoTile> allTiles = new ArrayList<BingoTile>(tiles.subList(0,tiles.size()-3)); //getting all tiles but the free space tile (last one)
+        List <BingoTile> allTiles = new ArrayList<BingoTile>(tiles.subList(0,tiles.size()-6)); //getting all tiles but the free space tile (last one)
         List<BingoTile> randomBoard;
         Collections.shuffle(allTiles);  //randomly shuffles the items in randomBoard
         randomBoard = allTiles.subList(0,24);
-        randomBoard.add(12,tiles.get(tiles.size()-2)); //retreiving the free space tile and placing it in middle of board (spot 12)
+        randomBoard.add(12,tiles.get(tiles.size()-5)); //retreiving the free space tile and placing it in middle of board (spot 12)
         return randomBoard;
     }
 
@@ -42,7 +42,17 @@ public class BingoTileLibrary {
             return customCard2;
     }
 
-    public List<BingoTile> getBlankCard (){
+    public List<BingoTile> getCustomCardEditer (){
+        List <BingoTile> board = new ArrayList<BingoTile>();
+        for (int i =0; i<24; i++) {
+            board.add(tiles.get(tiles.size() - 4));
+        }
+        board.add(12, tiles.get(tiles.size()-5));
+        return board;
+
+    }
+
+    public List<BingoTile> getBlankCard(){
         List <BingoTile> board = new ArrayList<BingoTile>();
         for (int i =0; i<24; i++) {
             board.add(tiles.get(tiles.size() - 1));
@@ -55,6 +65,26 @@ public class BingoTileLibrary {
     //returns a list of the catagories
     public List<String> getCatagories (){
         return catagories;
+    }
+
+    public String getTileName(int position){
+        return tiles.get(position).getName();
+    }
+    public int[] getAllTileIcon(){
+        int[] icons = new int[tiles.size()-6];
+        for (int i=0; i<tiles.size()-6; i++) {
+            icons[i] = tiles.get(i).getIconImage();
+        }
+        return icons;
+    }
+    public BingoTile getTilebyImage (int image){
+        BingoTile found = tiles.get(0);
+        for (int i =0; i< tiles.size()-1; i++){
+            if(image == tiles.get(i).iconImage){
+                found =tiles.get(i);
+            }
+        }
+        return found;
     }
 
     //setting custom card1
@@ -136,6 +166,9 @@ public class BingoTileLibrary {
 
         //Free Space
         tiles.add(new BingoTile(R.drawable.free_space,"Free Space",5));
-        tiles.add(new BingoTile(R.drawable.question_mark, "Blank", 5));
+        tiles.add(new BingoTile(R.drawable.question_mark, "Question Mark", 5));
+        tiles.add(new BingoTile(R.drawable.black_tile, "Black Tile", 5));
+        tiles.add(new BingoTile(R.drawable.x,"X", 5));
+        tiles.add(new BingoTile(R.drawable.blank_tile,"Blank Tile", 5));
     }
 }

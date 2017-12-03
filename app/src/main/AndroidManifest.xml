@@ -3,6 +3,7 @@
     package="com.example.kelseybedard.roadtripbingo">
 
     <application
+        android:name=".BingoManager"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,8 +18,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".BingoCard" />
-        <activity android:name=".CustomCard"></activity>
-        <activity android:name=".Pop"></activity>
+        <activity android:name=".CustomCard" />
+        <activity android:name=".Pop" />
+        <activity android:name=".ExitClick" />
+        <activity android:name=".findTile"></activity>
     </application>
 
 </manifest>
