@@ -39,13 +39,20 @@ public class findTile extends AppCompatActivity {
         finish();
     }
     public void selectClicked(View v){
-
-        //ADD AN IF STATEMENT HERE that if the tile already exists in the board, don't add it
-
-        Intent intent = new Intent();
-        intent.putExtra("Tile",selected.getIconImage());
-        setResult(RESULT_OK, intent);
-        finish();
+        boolean exists = false;
+        for( int i =0; i <((BingoManager) this.getApplication()).card.board.size()-1; i++){
+           if (((BingoManager) this.getApplication()).card.board.get(i).getIconImage() == selected.getIconImage()){
+                TextView text = (TextView) findViewById(R.id.selectText);
+                text.setText("Already on Card!");
+                exists = true;
+            }
+        }
+        if (!exists) {
+            Intent intent = new Intent();
+            intent.putExtra("Tile", selected.getIconImage());
+            setResult(RESULT_OK, intent);
+            finish();
+        }
 
     }
 
