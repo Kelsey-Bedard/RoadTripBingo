@@ -99,5 +99,6 @@ public class PlayingBingoCard {
         for(int i = 0; i < board.size(); i++){
             board.get(i).isSelected = false;
         }
+        board.get(12).isSelected = true;
     }
 }
