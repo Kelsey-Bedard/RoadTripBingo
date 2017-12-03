@@ -43,7 +43,11 @@ public class BingoManager {
         }
     }
 
-    public void setCardAsBlank (){
+    public void setCardAsEditor (){
+        card = new PlayingBingoCard(tileLibrary.getCustomCardEditer());
+    }
+
+    public void setCardAsBlank(){
         card = new PlayingBingoCard(tileLibrary.getBlankCard());
     }
 

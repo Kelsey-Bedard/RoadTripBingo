@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class BingoCard extends AppCompatActivity {
 
@@ -20,15 +23,34 @@ public class BingoCard extends AppCompatActivity {
 
         //Use this tutorial to add items to grid view
         //https://developer.android.com/guide/topics/ui/layout/gridview.html
+
+        //gridView that contrains x's
+        manager.setCardAsBlank();
+        final int[] checkMarks = manager.card.getImages();
+        final GridView xGrid = (GridView)findViewById(R.id.xGridView);
+        final ImageAdaptor imageAdaptor = new ImageAdaptor(this, checkMarks);
+        xGrid.setAdapter(imageAdaptor);
+
+        //sets bottom gridView to icons
         manager.setCardAsRandom();
-        GridView gridview = (GridView) findViewById(R.id.gridView);
+        final GridView gridview = (GridView) findViewById(R.id.gridView);
         gridview.setAdapter(new ImageAdaptor(this, manager.card.getImages()));
 
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+
+        xGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long itemId) {
                 TextView viewText = (TextView) findViewById(R.id.clickText);
                 viewText.setText(String.valueOf(position));
                 manager.card.toggleSelectedTile(position);
+                if (checkMarks[position] != R.drawable.x){
+                    checkMarks[position] = R.drawable.x;
+                    imageAdaptor.changeImages(checkMarks);
+                }
+                else {
+                    checkMarks[position] = R.drawable.blank_tile;
+                    imageAdaptor.changeImages(checkMarks);
+                }
+
                 boolean check = manager.card.checkBingo("Blackout");
                 if (check){  //Bingo Button is click on able
                     viewText.setText("Bingo");

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 
@@ -37,6 +38,11 @@ public class ImageAdaptor extends BaseAdapter {
         return mThumbIds.length;
     }
 
+    public void changeImages (int[] images){
+        mThumbIds = images;
+        notifyDataSetChanged();
+    }
+
     public Object getItem(int position) {
         return null;
     }
@@ -60,7 +66,10 @@ public class ImageAdaptor extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
         imageView.setImageResource(mThumbIds[position]);
+
         return imageView;
     }
+
+
 
 }
