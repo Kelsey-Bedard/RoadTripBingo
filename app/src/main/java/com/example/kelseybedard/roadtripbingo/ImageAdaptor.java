@@ -22,11 +22,15 @@ import java.util.List;
 public class ImageAdaptor extends BaseAdapter {
     private Context mContext;
     // Keep all Images in array
-    public Integer[] mThumbIds = {R.drawable.cat};
+    public int[] mThumbIds = new int[25];
 
     // Constructor
     public ImageAdaptor(Context c) {
         mContext = c;
+    }
+    public ImageAdaptor(Context c, int[] images){
+        mContext = c;
+        mThumbIds = images;
     }
 
     public int getCount() {

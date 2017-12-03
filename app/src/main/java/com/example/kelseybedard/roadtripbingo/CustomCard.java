@@ -24,8 +24,10 @@ public class CustomCard extends AppCompatActivity {
 
         //Use this tutorial to add items to grid view
         //https://developer.android.com/guide/topics/ui/layout/gridview.html
+        BingoManager manager = new BingoManager();
+        manager.setCardAsBlank();
         GridView gridview = (GridView) findViewById(R.id.gridView);
-        gridview.setAdapter(new ImageAdaptor(this));
+        gridview.setAdapter(new ImageAdaptor(this,manager.card.getImages()));
     }
 
     //User wants to exit custom card and return to main menu

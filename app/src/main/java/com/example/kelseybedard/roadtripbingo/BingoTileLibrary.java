@@ -11,7 +11,7 @@ import java.util.List;
 
 public class BingoTileLibrary {
 
-    List<BingoTile> tiles;
+    List<BingoTile> tiles = new ArrayList<BingoTile>();
     public List<String> catagories;     //list of all the different catagories that items can be organized in
     public List<BingoTile> customCard1;
     public List<BingoTile> customCard2;
@@ -26,11 +26,11 @@ public class BingoTileLibrary {
     //getting Random board
     public List<BingoTile> getRandomBoard(){
         //Want to include in allTiles only those that are of the first 4 catagories, find different way of doing this?
-        List <BingoTile> allTiles = new ArrayList<BingoTile>(tiles.subList(0,tiles.size()-2)); //getting all tiles but the free space tile (last one)
+        List <BingoTile> allTiles = new ArrayList<BingoTile>(tiles.subList(0,tiles.size()-3)); //getting all tiles but the free space tile (last one)
         List<BingoTile> randomBoard;
         Collections.shuffle(allTiles);  //randomly shuffles the items in randomBoard
-        randomBoard = allTiles.subList(0,23);
-        randomBoard.add(12,tiles.get(tiles.size()-1)); //retreiving the free space tile and placing it in middle of board (spot 12)
+        randomBoard = allTiles.subList(0,24);
+        randomBoard.add(12,tiles.get(tiles.size()-2)); //retreiving the free space tile and placing it in middle of board (spot 12)
         return randomBoard;
     }
 
@@ -40,6 +40,16 @@ public class BingoTileLibrary {
             return customCard1;
         else
             return customCard2;
+    }
+
+    public List<BingoTile> getBlankCard (){
+        List <BingoTile> board = new ArrayList<BingoTile>();
+        for (int i =0; i<24; i++) {
+            board.add(tiles.get(tiles.size() - 1));
+        }
+        board.add(12, tiles.get(tiles.size()-2));
+        return board;
+
     }
 
     //returns a list of the catagories
@@ -126,5 +136,6 @@ public class BingoTileLibrary {
 
         //Free Space
         tiles.add(new BingoTile(R.drawable.free_space,"Free Space",5));
+        tiles.add(new BingoTile(R.drawable.question_mark, "Blank", 5));
     }
 }

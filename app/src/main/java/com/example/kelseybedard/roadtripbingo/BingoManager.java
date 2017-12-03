@@ -43,6 +43,10 @@ public class BingoManager {
         }
     }
 
+    public void setCardAsBlank (){
+        card = new PlayingBingoCard(tileLibrary.getBlankCard());
+    }
+
     public void createNewGame(int bingoType, int boardType){
 
         if(boardType == 0){

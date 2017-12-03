@@ -69,6 +69,14 @@ public class PlayingBingoCard {
         }
     }
 
+    public int[] getImages (){
+        int[] images = new int[25];
+        for (int i =0; i<board.size(); i++){
+            images[i] = board.get(i).getIconImage();
+        }
+        return images;
+    }
+
     //When a tile is selected, either select or un-select it
     //So far we just toggle the tiles bool, need something to actually change how the image is drawn
     public void toggleSelectedTile (int tileIndex){

@@ -16,8 +16,10 @@ public class BingoCard extends AppCompatActivity {
 
         //Use this tutorial to add items to grid view
         //https://developer.android.com/guide/topics/ui/layout/gridview.html
+        BingoManager manager = new BingoManager();
+        manager.setCardAsRandom();
         GridView gridview = (GridView) findViewById(R.id.gridView);
-        gridview.setAdapter(new ImageAdaptor(this));
+        gridview.setAdapter(new ImageAdaptor(this, manager.card.getImages()));
     }
 
     //Player want to exit the game and return to main menu
