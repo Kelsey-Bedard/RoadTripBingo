@@ -91,23 +91,21 @@ public class BingoCard extends AppCompatActivity {
             }
         });
     }
-    public void iconClick(int position, ImageAdaptor imageAdaptor){
+    public void iconClick(int position, ImageAdaptor imageAdaptor) {
         final Button bingoButton = (Button) findViewById(R.id.BingoButton);
         ((BingoManager) this.getApplication()).card.toggleSelectedTile(position);
-        if (checkMarks[position] != R.drawable.x){
+        if (checkMarks[position] != R.drawable.x) {
             checkMarks[position] = R.drawable.x;
             imageAdaptor.changeImages(checkMarks);
-        }
-        else {
+        } else {
             checkMarks[position] = R.drawable.blank_tile;
             imageAdaptor.changeImages(checkMarks);
         }
 
         boolean check = ((BingoManager) this.getApplication()).card.checkBingo("Line");
-        if (check){  //Bingo Button is click on able
+        if (check) {  //Bingo Button is click on able
             bingoButton.setClickable(true);  //Change color of text?
-        }
-        else {
+        } else {
             bingoButton.setClickable(false); //Change color of text?
 
         }

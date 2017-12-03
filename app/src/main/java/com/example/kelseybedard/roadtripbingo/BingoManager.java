@@ -90,11 +90,6 @@ public class BingoManager extends Application{
         card.toggleSelectedTile(tileIndex);//for now just changing the cards fields
     }
 
-    public void addTile (BingoTile tile, int position){
-        card.board.add(position,tile);
-        card.board.remove(position+1);
-    }
-
     public boolean isValidCard(PlayingBingoCard cardToCheck){
         boolean isValid = true;
 

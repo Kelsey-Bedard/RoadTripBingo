@@ -31,20 +31,22 @@ public class CustomCard extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.customCardText);
         textView.setText("Edit Custom Card " + message);
 
+
+
         //Setting up which card to display in the grid view
         GridView gridview = (GridView) findViewById(R.id.customGridView);
 
+        //cardWeAreEditing = new PlayingBingoCard(((BingoManager) this.getApplication()).tileLibrary.getCustomCardEditer());//give the user a fresh card to edit
 
 
        if( customCardNumber == 1){
             if(((BingoManager) this.getApplication()).tileLibrary.customCard1 == null){//if custom card 1 has not been created before
                 cardWeAreEditing = new PlayingBingoCard(((BingoManager) this.getApplication()).tileLibrary.getCustomCardEditer());//give the user a fresh card to edit
+                //((BingoManager) this.getApplication()).card = ((BingoManager) this.getApplication()).tileLibrary.getCustomCardEditer();
             }
             else{
                 cardWeAreEditing = new PlayingBingoCard(((BingoManager) this.getApplication()).tileLibrary.customCard1);//load their old card
             }
-
-            gridview.setAdapter(new ImageAdaptor(this, cardWeAreEditing.getImages()));//display the card in the grid view
         }
         else {//customCardNumber == 2, we are going to edit custom card 2
             if (((BingoManager) this.getApplication()).tileLibrary.customCard1 == null) {//if custom card 2 has not been created before
@@ -52,10 +54,9 @@ public class CustomCard extends AppCompatActivity {
             } else {
                 cardWeAreEditing = new PlayingBingoCard(((BingoManager) this.getApplication()).tileLibrary.customCard1);//load their old card
             }
-
-            gridview.setAdapter(new ImageAdaptor(this, cardWeAreEditing.getImages()));//display the card
         }
-
+        adaptor.changeImages(cardWeAreEditing.getImages());
+        ((BingoManager) this.getApplication()).card = cardWeAreEditing;
         listener();
     }
     //User wants to exit custom card and return to main menu
@@ -76,26 +77,27 @@ public class CustomCard extends AppCompatActivity {
             if(resultCode ==RESULT_OK){
                 int icon = data.getIntExtra("Tile",0);//Icon contains icon location
                 changed = ((BingoManager) this.getApplication()).tileLibrary.getTilebyImage(icon);
-                ((BingoManager) this.getApplication()).addTile(changed,changedLocation);
-                adaptor.changeImages(((BingoManager) this.getApplication()).card.getImages());
+                cardWeAreEditing.addTile(changed,changedLocation);
+                adaptor.changeImages(cardWeAreEditing.getImages());
             }
         }
     }
 
     //User wants to save their custom card and return to main menu
     public void saveAndExitClick (View view){
-       /*//Will save data from board here when before exiting
-        BingoManager manager = ((BingoManager) getApplication());
-        if(manager.isValidCard(cardWeAreEditing) && customCardNumber == 1){
-            manager.tileLibrary.customCard1 = cardWeAreEditing.board;
+       //Will save data from board here when before exiting
+        if( ((BingoManager) this.getApplication()).isValidCard(cardWeAreEditing) && customCardNumber == 1){
+            ((BingoManager) this.getApplication()).tileLibrary.customCard1 = cardWeAreEditing.board;
+            finish();
         }
-        else if(manager.isValidCard(cardWeAreEditing) && customCardNumber == 2){
-            manager.tileLibrary.customCard2 = cardWeAreEditing.board;
+        else if( ((BingoManager) this.getApplication()).isValidCard(cardWeAreEditing) && customCardNumber == 2){
+            ((BingoManager) this.getApplication()).tileLibrary.customCard2 = cardWeAreEditing.board;
+            finish();
         }
         else{
             //WARN USER THAT THEY DON'T HAVE A PROPER CUSTOM CARD TO PLAY WITH, DO NOT ALLOW SAVE
         }
-        finish();*/
+
     }
 
 
@@ -104,8 +106,14 @@ public class CustomCard extends AppCompatActivity {
         gridview.setAdapter(adaptor);
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long itemId) {
-                changedLocation = position;
-                popUp();
+                if (position == 12) {
+                    //Warn they can't change free space
+
+                }
+                else {
+                    changedLocation = position;
+                    popUp();
+                }
 
 
 

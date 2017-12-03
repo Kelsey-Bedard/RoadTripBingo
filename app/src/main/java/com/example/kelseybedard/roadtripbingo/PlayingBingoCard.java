@@ -101,6 +101,10 @@ public class PlayingBingoCard {
         }
         board.get(12).isSelected = true;
     }
+    public void addTile (BingoTile tile, int position){
+        board.add(position,tile);
+        board.remove(position+1);
+    }
 
 
 }
