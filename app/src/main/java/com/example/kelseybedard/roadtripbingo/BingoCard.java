@@ -24,6 +24,11 @@ public class BingoCard extends AppCompatActivity {
         setContentView(R.layout.activity_bingo_card);
         //This is were we will set the card up based on if it was custom or random
 
+        TextView cardText = (TextView) findViewById(R.id.customCardText);
+        TextView gameTypeText = (TextView) findViewById(R.id.gameTypeText);
+
+        //SET THE TEXTVIEW ONCE WE CAN PASS THE DATA TO THE ITEM
+
         //Use this tutorial to add items to grid view
         //https://developer.android.com/guide/topics/ui/layout/gridview.html
 
