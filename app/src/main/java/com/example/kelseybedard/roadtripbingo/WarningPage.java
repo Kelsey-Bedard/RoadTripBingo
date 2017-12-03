@@ -19,7 +19,7 @@ public class WarningPage extends AppCompatActivity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.9),(int)(height*.7));
+        getWindow().setLayout((int)(width*.9),(int)(height*.3));
     }
 
     public void exitClick(View v){

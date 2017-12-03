@@ -25,7 +25,7 @@ public class ExitClick extends AppCompatActivity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.9),(int)(height*.5));
+        getWindow().setLayout((int)(width*.9),(int)(height*.3));
     }
 
     public void exitClick(View v){
