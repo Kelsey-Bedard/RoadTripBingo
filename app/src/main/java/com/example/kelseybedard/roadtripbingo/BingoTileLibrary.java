@@ -67,6 +67,26 @@ public class BingoTileLibrary {
         return catagories;
     }
 
+    public String getTileName(int position){
+        return tiles.get(position).getName();
+    }
+    public int[] getAllTileIcon(){
+        int[] icons = new int[tiles.size()-6];
+        for (int i=0; i<tiles.size()-6; i++) {
+            icons[i] = tiles.get(i).getIconImage();
+        }
+        return icons;
+    }
+    public BingoTile getTilebyImage (int image){
+        BingoTile found = tiles.get(0);
+        for (int i =0; i< tiles.size()-1; i++){
+            if(image == tiles.get(i).iconImage){
+                found =tiles.get(i);
+            }
+        }
+        return found;
+    }
+
     //setting custom card1
     public void setCustomCard1 (List<BingoTile> card){
         customCard1 = card;

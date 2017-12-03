@@ -101,4 +101,6 @@ public class PlayingBingoCard {
         }
         board.get(12).isSelected = true;
     }
+
+
 }

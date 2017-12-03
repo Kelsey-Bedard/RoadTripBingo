@@ -1,5 +1,7 @@
 package com.example.kelseybedard.roadtripbingo;
 
+import android.app.Application;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -7,7 +9,7 @@ import java.util.List;
  * Created by leighton on 12/2/2017.
  */
 
-public class BingoManager {
+public class BingoManager extends Application{
 
     public PlayingBingoCard card;
     public BingoTileLibrary tileLibrary;
@@ -87,6 +89,11 @@ public class BingoManager {
         card.toggleSelectedTile(tileIndex);//for now just changing the cards fields
     }
 
+    public void addTile (BingoTile tile, int position){
+        card.board.add(position,tile);
+        card.board.remove(position+1);
+    }
+
     //Method called when the user presses the check bingo button, if we decide to have one, could use this as a helper method and use it inside
     //select tile if you want it to be run automatically for the user
     public void checkBingo(){
@@ -97,11 +104,5 @@ public class BingoManager {
            //TELL THE USER THEY DON'T HAVE THE BINGO THINGS
        }
     }
-
-
-
-
-
-
 
 }

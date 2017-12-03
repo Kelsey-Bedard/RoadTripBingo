@@ -1,21 +1,18 @@
 package com.example.kelseybedard.roadtripbingo;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class BingoCard extends AppCompatActivity {
 
-    BingoManager manager = new BingoManager();
+
     int[] checkMarks;
 
     @Override
@@ -35,16 +32,16 @@ public class BingoCard extends AppCompatActivity {
         //gridView that contrains x's
         final Button bingoButton = (Button) findViewById(R.id.BingoButton);
         bingoButton.setClickable(false);
-        manager.setCardAsBlank();
-         checkMarks= manager.card.getImages();
+        ((BingoManager) this.getApplication()).setCardAsBlank();
+         checkMarks= ((BingoManager) this.getApplication()).card.getImages();
         final GridView xGrid = (GridView)findViewById(R.id.xGridView);
         final ImageAdaptor imageAdaptor = new ImageAdaptor(this, checkMarks);
         xGrid.setAdapter(imageAdaptor);
 
         //sets bottom gridView to icons
-        manager.setCardAsRandom();
-        final GridView gridview = (GridView) findViewById(R.id.gridView);
-        gridview.setAdapter(new ImageAdaptor(this, manager.card.getImages()));
+        ((BingoManager) this.getApplication()).setCardAsRandom();
+        final GridView gridview = (GridView) findViewById(R.id.customGridView);
+        gridview.setAdapter(new ImageAdaptor(this, ((BingoManager) this.getApplication()).card.getImages()));
 
         listener();
     }
@@ -71,7 +68,7 @@ public class BingoCard extends AppCompatActivity {
             checkMarks[i] = R.drawable.blank_tile;
         }
         checkMarks[12] = R.drawable.x;
-        manager.card.clearCard();
+        ((BingoManager) this.getApplication()).card.clearCard();
         listener();
     }
 
@@ -88,26 +85,32 @@ public class BingoCard extends AppCompatActivity {
         xGrid.setAdapter(imageAdaptor);
         xGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long itemId) {
-                manager.card.toggleSelectedTile(position);
-                if (checkMarks[position] != R.drawable.x){
-                    checkMarks[position] = R.drawable.x;
-                    imageAdaptor.changeImages(checkMarks);
-                }
-                else {
-                    checkMarks[position] = R.drawable.blank_tile;
-                    imageAdaptor.changeImages(checkMarks);
-                }
+                iconClick(position,imageAdaptor);
 
-                boolean check = manager.card.checkBingo("Line");
-                if (check){  //Bingo Button is click on able
-                    bingoButton.setClickable(true);
-                }
-                else {
-                    bingoButton.setClickable(false);
-
-                }
 
             }
         });
+    }
+    public void iconClick(int position, ImageAdaptor imageAdaptor){
+        final Button bingoButton = (Button) findViewById(R.id.BingoButton);
+        ((BingoManager) this.getApplication()).card.toggleSelectedTile(position);
+        if (checkMarks[position] != R.drawable.x){
+            checkMarks[position] = R.drawable.x;
+            imageAdaptor.changeImages(checkMarks);
+        }
+        else {
+            checkMarks[position] = R.drawable.blank_tile;
+            imageAdaptor.changeImages(checkMarks);
+        }
+
+        boolean check = ((BingoManager) this.getApplication()).card.checkBingo("Line");
+        if (check){  //Bingo Button is click on able
+            bingoButton.setClickable(true);  //Change color of text?
+        }
+        else {
+            bingoButton.setClickable(false); //Change color of text?
+
+        }
+
     }
 }
