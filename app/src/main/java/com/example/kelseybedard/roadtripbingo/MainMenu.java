@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+
+
 
 public class MainMenu extends AppCompatActivity {
 
@@ -20,7 +23,7 @@ public class MainMenu extends AppCompatActivity {
     //User wishes to play Bingo
     public void playBingoClick (View v){
         //Popup stuff here so we determine what kind of card and game the user wants to play
-        Intent intent = new Intent(this, BingoCard.class);
+        Intent intent = new Intent(MainMenu.this,Pop.class);
         startActivity(intent);
     }
 

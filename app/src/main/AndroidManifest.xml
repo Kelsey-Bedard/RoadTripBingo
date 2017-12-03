@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".BingoCard" />
         <activity android:name=".CustomCard"></activity>
+        <activity android:name=".Pop"></activity>
     </application>
 
 </manifest>

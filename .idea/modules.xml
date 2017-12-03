@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RoadTripBingo.iml" filepath="$PROJECT_DIR$/RoadTripBingo.iml" />
+      <module fileurl="file://C:\Users\Tiana\AndroidStudioProjects\RoadTripBingo7\RoadTripBingo.iml" filepath="C:\Users\Tiana\AndroidStudioProjects\RoadTripBingo7\RoadTripBingo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RoadTripBingo7.iml" filepath="$PROJECT_DIR$/RoadTripBingo7.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
