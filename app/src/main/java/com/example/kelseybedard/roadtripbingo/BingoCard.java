@@ -74,6 +74,19 @@ public class BingoCard extends AppCompatActivity {
                 finish();
             }
         }
+        if (requestCode ==2){
+            if (resultCode == RESULT_OK){
+                finish();
+            }
+            else{
+                for (int i = 0; i<25; i++){
+                    checkMarks[i] = R.drawable.blank_tile;
+                }
+                checkMarks[12] = R.drawable.x;
+                ((BingoManager) this.getApplication()).card.clearCard();
+                listener();
+            }
+        }
     }
     //Player wants to clear their card
     public void clearClick (View v){
@@ -88,7 +101,8 @@ public class BingoCard extends AppCompatActivity {
 
     //A player gets a bingo
     public void bingoClick(View v){
-        //pop up menu get activated here?
+        Intent intent = new Intent(this,GotBingo.class);
+        startActivityForResult(intent,2);
     }
 
     private void listener (){

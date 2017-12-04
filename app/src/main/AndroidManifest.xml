@@ -22,7 +22,8 @@
         <activity android:name=".Pop" />
         <activity android:name=".ExitClick" />
         <activity android:name=".findTile" />
-        <activity android:name=".WarningPage"></activity>
+        <activity android:name=".WarningPage" />
+        <activity android:name=".GotBingo"></activity>
     </application>
 
 </manifest>
