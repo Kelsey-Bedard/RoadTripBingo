@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="com.example.kelseybedard.roadtripbingo.ExitClick"
     tools:layout_editor_absoluteY="25dp">
 
@@ -14,28 +15,33 @@
         android:layout_marginLeft="28dp"
         android:layout_marginTop="16dp"
         android:text="Do you want to Exit?"
+        android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/exitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_marginStart="34dp"
         android:layout_marginLeft="34dp"
+        android:background="@drawable/buttons"
         android:onClick="exitClick"
         android:text="Yes"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBaseline_toBaselineOf="@+id/continueButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/continueButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_marginTop="31dp"
+        android:background="@drawable/buttons"
         android:onClick="continueClick"
         android:text="No"
+        android:textColor="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="@+id/exitText"
         app:layout_constraintTop_toBottomOf="@+id/exitText" />
 </android.support.constraint.ConstraintLayout>

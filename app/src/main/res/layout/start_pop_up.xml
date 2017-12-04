@@ -7,6 +7,7 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:background="@drawable/background"
         android:orientation="vertical">
 
         <TextView
@@ -97,13 +98,15 @@
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="27dp"
             android:layout_toEndOf="@+id/radioButton"
             android:layout_toRightOf="@+id/radioButton"
+            android:background="@drawable/buttons"
             android:onClick="playGame"
-            android:text="Play Game" />
+            android:text="Play Game"
+            android:textColor="@android:color/background_light" />
     </LinearLayout>
 
 </RelativeLayout>

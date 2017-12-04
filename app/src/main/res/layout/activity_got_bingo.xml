@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="com.example.kelseybedard.roadtripbingo.GotBingo">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_marginLeft="28dp"
         android:layout_marginTop="8dp"
         android:text="You got a Bingo!"
+        android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -26,30 +28,35 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
         android:text="Congrads!!"
+        android:textColor="@android:color/background_dark"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/clearButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
         android:layout_marginStart="49dp"
         android:layout_marginLeft="49dp"
+        android:background="@drawable/buttons"
         android:onClick="continueClick"
         android:text="@string/clear_card"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBaseline_toBaselineOf="@+id/exitButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/exitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="79dp"
-        android:layout_marginRight="79dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/buttons"
         android:onClick="exitClick"
         android:text="@string/exit"
+        android:textColor="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 </android.support.constraint.ConstraintLayout>

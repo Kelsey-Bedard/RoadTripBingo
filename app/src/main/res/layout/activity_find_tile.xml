@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="com.example.kelseybedard.roadtripbingo.findTile">
 
     <TextView
@@ -14,31 +15,36 @@
         android:layout_marginLeft="28dp"
         android:layout_marginTop="78dp"
         android:text="Select Catagory"
+        android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="80dp"
         android:layout_marginEnd="82dp"
         android:layout_marginRight="82dp"
+        android:background="@drawable/buttons"
         android:onClick="selectClicked"
         android:text="Add"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/selectGridView" />
 
     <Button
         android:id="@+id/exitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="80dp"
         android:layout_marginStart="59dp"
         android:layout_marginLeft="59dp"
+        android:background="@drawable/buttons"
         android:onClick="exitClick"
         android:text="Exit"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/selectGridView" />
 
