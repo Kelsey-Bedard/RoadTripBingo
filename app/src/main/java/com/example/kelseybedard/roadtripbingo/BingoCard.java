@@ -110,7 +110,7 @@ public class BingoCard extends AppCompatActivity {
     private void listener (){
         final Button bingoButton = (Button) findViewById(R.id.BingoButton);
         bingoButton.setClickable(false);
-        bingoButton.setBackgroundResource(R.drawable.buttons);
+        bingoButton.setBackgroundResource(R.drawable.greybutton);
         bingoButton.setTextColor(Color.WHITE);
         final ImageAdaptor imageAdaptor = new ImageAdaptor(this, checkMarks);
         final GridView xGrid = (GridView)findViewById(R.id.xGridView);
@@ -136,12 +136,12 @@ public class BingoCard extends AppCompatActivity {
         boolean check = ((BingoManager) this.getApplication()).card.checkBingo(gameType);
         if (check) {  //Bingo Button is click on able
             bingoButton.setClickable(true);  //Change color of text?
-            bingoButton.setBackgroundResource(R.drawable.buttonbackground2);
+            bingoButton.setBackgroundResource(R.drawable.buttons);
             bingoButton.setTextColor(Color.BLACK);
 
         } else {
             bingoButton.setClickable(false); //Change color of text?
-            bingoButton.setBackgroundResource(R.drawable.buttons);
+            bingoButton.setBackgroundResource(R.drawable.greybutton);
             bingoButton.setTextColor(Color.WHITE);
 
         }
