@@ -4,6 +4,7 @@ import android.app.Application;
 
 import java.util.Arrays;
 import java.util.List;
+import android.media.MediaPlayer;
 
 /**
  * Created by leighton on 12/2/2017.
@@ -94,11 +95,27 @@ public class BingoManager extends Application{
         card.board.remove(position+1);
     }
 
+    public boolean isValidCard(PlayingBingoCard cardToCheck){
+        boolean isValid = true;
+
+        for(int i = 0; i < cardToCheck.board.size(); i++){
+            if(cardToCheck.board.get(i).name.equals("Question Mark")){
+                isValid = false;
+                break;
+            }
+        }
+        return isValid;
+
+    }
+
     //Method called when the user presses the check bingo button, if we decide to have one, could use this as a helper method and use it inside
     //select tile if you want it to be run automatically for the user
     public void checkBingo(){
        if(card.checkBingo(gameType)){
            //DO THE BINGO THINGS
+           final MediaPlayer mp = MediaPlayer.create(this, R.raw.sound);
+           mp.start();
+
        }
        else{
            //TELL THE USER THEY DON'T HAVE THE BINGO THINGS

@@ -13,6 +13,11 @@ public class CustomCard extends AppCompatActivity {
     int changedLocation;
     ImageAdaptor adaptor = new ImageAdaptor(this);
 
+    //Not super proud of these fields... but it works?????
+    PlayingBingoCard cardWeAreEditing;
+    private String message = getIntent().getStringExtra(MainMenu.EXTRA_MESSAGE);
+    Integer customCardNumber = Integer.parseInt(message);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,10 +31,31 @@ public class CustomCard extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.customCardText);
         textView.setText("Edit Custom Card " + message);
 
-        //Use this tutorial to add items to grid view
-        //https://developer.android.com/guide/topics/ui/layout/gridview.html
-        ((BingoManager) this.getApplication()).setCardAsEditor();
-        adaptor.changeImages(((BingoManager) this.getApplication()).card.getImages());
+        //Setting up which card to display in the grid view
+        GridView gridview = (GridView) findViewById(R.id.customGridView);
+
+        BingoManager manager = ((BingoManager) getApplication());
+
+        if(customCardNumber == 1){
+            if(manager.tileLibrary.customCard1 == null){//if custom card 1 has not been created before
+                cardWeAreEditing = new PlayingBingoCard(manager.tileLibrary.getCustomCardEditer());//give the user a fresh card to edit
+            }
+            else{
+                cardWeAreEditing = new PlayingBingoCard(manager.tileLibrary.customCard1);//load their old card
+            }
+
+            gridview.setAdapter(new ImageAdaptor(this, cardWeAreEditing.getImages()));//display the card in the grid view
+        }
+        else {//customCardNumber == 2, we are going to edit custom card 2
+            if (manager.tileLibrary.customCard1 == null) {//if custom card 2 has not been created before
+                cardWeAreEditing = new PlayingBingoCard(manager.tileLibrary.getCustomCardEditer());//give the user a fresh card to edit
+            } else {
+                cardWeAreEditing = new PlayingBingoCard(manager.tileLibrary.customCard1);//load their old card
+            }
+
+            gridview.setAdapter(new ImageAdaptor(this, cardWeAreEditing.getImages()));//display the card
+        }
+
         listener();
     }
 
@@ -60,8 +86,19 @@ public class CustomCard extends AppCompatActivity {
     //User wants to save their custom card and return to main menu
     public void saveAndExitClick (View view){
         //Will save data from board here when before exiting
+        BingoManager manager = ((BingoManager) getApplication());
+        if(manager.isValidCard(cardWeAreEditing) && customCardNumber == 1){
+            manager.tileLibrary.customCard1 = cardWeAreEditing.board;
+        }
+        else if(manager.isValidCard(cardWeAreEditing) && customCardNumber == 2){
+            manager.tileLibrary.customCard2 = cardWeAreEditing.board;
+        }
+        else{
+            //WARN USER THAT THEY DON'T HAVE A PROPER CUSTOM CARD TO PLAY WITH, DO NOT ALLOW SAVE
+        }
         finish();
     }
+
 
     private void listener (){
         GridView gridview = (GridView) findViewById(R.id.customGridView);
