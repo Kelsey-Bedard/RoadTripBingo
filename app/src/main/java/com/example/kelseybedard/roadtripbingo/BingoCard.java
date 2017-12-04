@@ -21,19 +21,16 @@ public class BingoCard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bingo_card);
-        //This is were we will set the card up based on if it was custom or random
 
+        //Find the textViews to set their content
         TextView cardText = (TextView) findViewById(R.id.cardTypeText);
         TextView gameTypeText = (TextView) findViewById(R.id.gameTypeText);
-
-        //SET THE TEXTVIEW ONCE WE CAN PASS THE DATA TO THE ITEM
         Intent intent = getIntent();
         cardText.setText("Card: " +  intent.getStringExtra("Game Card"));
         gameTypeText.setText("Game Type: "+  intent.getStringExtra("Game Type"));
         gameType =  intent.getStringExtra("Game Type");
-        //Use this tutorial to add items to grid view
-        //https://developer.android.com/guide/topics/ui/layout/gridview.html
 
+        //https://developer.android.com/guide/topics/ui/layout/gridview.html
         //gridView that contrains x's
         final Button bingoButton = (Button) findViewById(R.id.BingoButton);
         bingoButton.setClickable(false);
@@ -43,7 +40,7 @@ public class BingoCard extends AppCompatActivity {
         final ImageAdaptor imageAdaptor = new ImageAdaptor(this, checkMarks);
         xGrid.setAdapter(imageAdaptor);
 
-        //sets bottom gridView to icons
+        //sets bottom gridView to with Icons based on what card is selected
         if ((intent.getStringExtra("Game Card")).equals("Random")){
             ((BingoManager) this.getApplication()).setCardAsRandom();
         }
@@ -62,6 +59,7 @@ public class BingoCard extends AppCompatActivity {
 
     //Player want to exit the game and return to main menu
     public void exitClick (View v){
+        //Check to make sure they want to leave
         Intent intent = new Intent(this,ExitClick.class);
         startActivityForResult(intent,1);
     }
@@ -69,17 +67,17 @@ public class BingoCard extends AppCompatActivity {
     //https://stackoverflow.com/questions/14292398/how-to-pass-data-from-2nd-activity-to-1st-activity-when-pressed-back-android
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
+        if (requestCode == 1) { //if they are exiting
             if(resultCode == RESULT_OK) {
                 finish();
             }
         }
-        if (requestCode ==2){
-            if (resultCode == RESULT_OK){
+        if (requestCode ==2){  //if they got a bingo
+            if (resultCode == RESULT_OK){ //exit on bingo
                 finish();
             }
             else{
-                for (int i = 0; i<25; i++){
+                for (int i = 0; i<25; i++){ //clear tiles
                     checkMarks[i] = R.drawable.blank_tile;
                 }
                 checkMarks[12] = R.drawable.x;
