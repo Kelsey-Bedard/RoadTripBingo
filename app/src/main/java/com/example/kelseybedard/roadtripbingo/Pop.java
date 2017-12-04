@@ -32,6 +32,17 @@ public class Pop extends Activity {
         int height = dm.heightPixels;
 
         getWindow().setLayout((int)(width*.9),(int)(height*.7));
+
+        RadioGroup gameCardGroup = (RadioGroup) findViewById(R.id.gameCardGroup);
+
+        if(((BingoManager) this.getApplication()).tileLibrary.customCard1 == null){
+            RadioButton random1 = (RadioButton)findViewById(R.id.custom1Button);
+            random1.setVisibility(View.INVISIBLE);
+        }
+        if(((BingoManager) this.getApplication()).tileLibrary.customCard2 == null){
+            RadioButton random2 = (RadioButton)findViewById(R.id.custom2Button);
+            random2.setVisibility(View.INVISIBLE);
+        }
     }
 
     //Play Game Button --> Start game
