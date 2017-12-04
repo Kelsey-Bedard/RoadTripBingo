@@ -37,17 +37,29 @@ public class Pop extends Activity {
     //Play Game Button --> Start game
     //Submit game type and card selection
     public void playGame(View v){
-        Intent intent = new Intent(this, BingoCard.class);
-        startActivity(intent);
-        finish();
+        RadioGroup gameTypeGroup = (RadioGroup) findViewById(R.id.gameTypeGroup);
+        RadioGroup gameCardGroup = (RadioGroup) findViewById(R.id.gameCardGroup);
+
+
+        RadioButton gameCardRadioButton = (RadioButton)findViewById(gameCardGroup.getCheckedRadioButtonId());
+        String gameCard = gameCardRadioButton.getText().toString();
+
+        RadioButton gameTypeRadioButton = (RadioButton)findViewById(gameTypeGroup.getCheckedRadioButtonId());
+        String gameType = gameTypeRadioButton.getText().toString();
+
+            Intent intent = new Intent(this, BingoCard.class);
+            intent.putExtra("Game Type", gameType);
+            intent.putExtra("Game Card", gameCard);
+            startActivity(intent);
+            finish();
     }
 
     //Display selected radio buttons
     public void rbclick(View v){
-        int radioButtonID = rg.getCheckedRadioButtonId();
+        /*int radioButtonID = rg.getCheckedRadioButtonId();
         rb = (RadioButton) findViewById(radioButtonID);
 
-       // Toast.makeText(getBaseContext(), rb.getText(), Toast.LENGTH_SHORT).show();
+       Toast.makeText(getBaseContext(), rb.getText(), Toast.LENGTH_SHORT).show();*/
     }
 
 

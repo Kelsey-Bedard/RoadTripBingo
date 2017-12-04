@@ -14,6 +14,8 @@ public class BingoCard extends AppCompatActivity {
 
 
     int[] checkMarks;
+    String gameType;
+    int gameCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +23,14 @@ public class BingoCard extends AppCompatActivity {
         setContentView(R.layout.activity_bingo_card);
         //This is were we will set the card up based on if it was custom or random
 
-        TextView cardText = (TextView) findViewById(R.id.customCardText);
+        TextView cardText = (TextView) findViewById(R.id.cardTypeText);
         TextView gameTypeText = (TextView) findViewById(R.id.gameTypeText);
 
         //SET THE TEXTVIEW ONCE WE CAN PASS THE DATA TO THE ITEM
-
+        Intent intent = getIntent();
+        cardText.setText("Card: " +  intent.getStringExtra("Game Card"));
+        gameTypeText.setText("Game Type: "+  intent.getStringExtra("Game Type"));
+        gameType =  intent.getStringExtra("Game Type");
         //Use this tutorial to add items to grid view
         //https://developer.android.com/guide/topics/ui/layout/gridview.html
 
@@ -39,7 +44,16 @@ public class BingoCard extends AppCompatActivity {
         xGrid.setAdapter(imageAdaptor);
 
         //sets bottom gridView to icons
-        ((BingoManager) this.getApplication()).setCardAsRandom();
+        if ((intent.getStringExtra("Game Card")).equals("Random")){
+            ((BingoManager) this.getApplication()).setCardAsRandom();
+        }
+        else if ((intent.getStringExtra("Game Card")).equals("Custom Card 1"))
+        {
+            ((BingoManager) this.getApplication()).setCardAsCustom(1);
+        }
+        else {
+            ((BingoManager) this.getApplication()).setCardAsCustom(2);
+        }
         final GridView gridview = (GridView) findViewById(R.id.customGridView);
         gridview.setAdapter(new ImageAdaptor(this, ((BingoManager) this.getApplication()).card.getImages()));
 
@@ -102,7 +116,7 @@ public class BingoCard extends AppCompatActivity {
             imageAdaptor.changeImages(checkMarks);
         }
 
-        boolean check = ((BingoManager) this.getApplication()).card.checkBingo("Line");
+        boolean check = ((BingoManager) this.getApplication()).card.checkBingo(gameType);
         if (check) {  //Bingo Button is click on able
             bingoButton.setClickable(true);  //Change color of text?
         } else {

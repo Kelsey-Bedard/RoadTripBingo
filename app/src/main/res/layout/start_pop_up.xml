@@ -18,33 +18,38 @@
             android:textStyle="bold" />
 
         <RadioGroup
+
+            android:id="@+id/gameTypeGroup"
             android:layout_width="match_parent"
-            android:layout_height="100dp" >
+            android:layout_height="100dp"
+            android:checkedButton="@+id/lineButton">
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/lineButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Line"
                 android:checked="false"
-                android:onClick="rbclick"/>
+                android:onClick="rbclick"
+                android:text="Line" />
 
             <RadioButton
+                android:id="@+id/fourCornerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Four Corners"
                 android:checked="false"
-                android:onClick="rbclick"/>
+                android:onClick="rbclick"
+                android:text="Four Corners" />
 
             <RadioButton
+                android:id="@+id/blackoutButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Blackout"
                 android:checked="false"
-                android:onClick="rbclick"/>
+                android:onClick="rbclick"
+                android:text="Blackout" />
         </RadioGroup>
 
         <TextView
@@ -56,33 +61,37 @@
             android:textStyle="bold" />
 
         <RadioGroup
+            android:id="@+id/gameCardGroup"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="100dp"
+            android:checkedButton="@+id/randomButton">
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/randomButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Random"
                 android:checked="false"
-                android:onClick="rbclick"/>
+                android:onClick="rbclick"
+                android:text="Random" />
 
             <RadioButton
+                android:id="@+id/custom1Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Custom Card 1"
                 android:checked="false"
-                android:onClick="rbclick"/>
+                android:onClick="rbclick"
+                android:text="Custom Card 1" />
 
             <RadioButton
+                android:id="@+id/custom2Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Custom Card 2"
                 android:checked="false"
-                android:onClick="rbclick"/>
+                android:onClick="rbclick"
+                android:text="Custom Card 2" />
         </RadioGroup>
 
         <Button
