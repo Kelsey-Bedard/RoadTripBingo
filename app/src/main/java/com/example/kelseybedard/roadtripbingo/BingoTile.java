@@ -10,7 +10,7 @@ public class BingoTile {
     public int catagory;   //the catagory that icon is in
     public boolean isSelected;  //whether the tile has been selected or not
 
-    //setup of com.example.kelseybedard.roadtripbingo.BingoTile
+    //constructor for each BingoTile
     public BingoTile(int link, String tileName, int typeOfTile){
         iconImage= link;
         name = tileName;
@@ -21,10 +21,6 @@ public class BingoTile {
     //Changes the isSelected to opposite of what it was
     public void setSelected(){
         isSelected = !isSelected;
-    }
-    //makes isSelected False
-    public void selectedFalse(){
-        isSelected = false;
     }
     public int getIconImage(){
         return iconImage;

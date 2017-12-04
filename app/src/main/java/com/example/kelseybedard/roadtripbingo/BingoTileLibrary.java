@@ -42,6 +42,7 @@ public class BingoTileLibrary {
             return customCard2;
     }
 
+    //Fills a card with question marks and a free space
     public List<BingoTile> getCustomCardEditer (){
         List <BingoTile> board = new ArrayList<BingoTile>();
         for (int i =0; i<24; i++) {
@@ -52,6 +53,7 @@ public class BingoTileLibrary {
 
     }
 
+    //get a card filled with blank tiles and the free space marked off
     public List<BingoTile> getBlankCard(){
         List <BingoTile> board = new ArrayList<BingoTile>();
         for (int i =0; i<24; i++) {
@@ -77,6 +79,7 @@ public class BingoTileLibrary {
         }
         return icons;
     }
+    //returns a bingotile based on the image sent
     public BingoTile getTilebyImage (int image){
         BingoTile found = tiles.get(0);
         for (int i =0; i< tiles.size()-1; i++){

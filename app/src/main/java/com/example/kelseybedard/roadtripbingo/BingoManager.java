@@ -54,32 +54,6 @@ public class BingoManager extends Application{
         card = new PlayingBingoCard(tileLibrary.getBlankCard());
     }
 
-    public void createNewGame(int bingoType, int boardType){
-
-        if(boardType == 0){
-           this.setCardAsRandom();
-        }
-        else if(boardType == 1){
-            this.card = new PlayingBingoCard(tileLibrary.customCard1);
-        }
-        else if(boardType == 2){
-            this.card = new PlayingBingoCard(tileLibrary.customCard2);
-        }
-        else{
-            System.out.println("Improper board type integer passed to BingoManager");
-        }
-
-        //setting the type of game we are getting
-        switch (bingoType){
-            case 1: gameType = gameTypes.get(0); //line
-                break;
-            case 2: gameType = gameTypes.get(1); //4 corners
-                break;
-            case 3: gameType = gameTypes.get(2); //blackout
-                break;
-        }
-    }
-
     //if there was more to reset other than the card we would put that in this method
     public void resetGame(){
         card.clearCard();
@@ -90,6 +64,7 @@ public class BingoManager extends Application{
         card.toggleSelectedTile(tileIndex);//for now just changing the cards fields
     }
 
+    //checks whether a card being edited is a card that could be played in the game
     public boolean isValidCard(PlayingBingoCard cardToCheck){
         boolean isValid = true;
 
@@ -101,20 +76,6 @@ public class BingoManager extends Application{
         }
         return isValid;
 
-    }
-
-    //Method called when the user presses the check bingo button, if we decide to have one, could use this as a helper method and use it inside
-    //select tile if you want it to be run automatically for the user
-    public void checkBingo(){
-       if(card.checkBingo(gameType)){
-           //DO THE BINGO THINGS
-           final MediaPlayer mp = MediaPlayer.create(this, R.raw.sound);
-           mp.start();
-
-       }
-       else{
-           //TELL THE USER THEY DON'T HAVE THE BINGO THINGS
-       }
     }
 
 }

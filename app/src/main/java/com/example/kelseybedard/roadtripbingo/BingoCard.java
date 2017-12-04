@@ -2,6 +2,7 @@ package com.example.kelseybedard.roadtripbingo;
 
 import android.content.Intent;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -88,7 +89,6 @@ public class BingoCard extends AppCompatActivity {
     }
     //Player wants to clear their card
     public void clearClick (View v){
-        //Add warning that player is clearing card
         for (int i = 0; i<25; i++){
             checkMarks[i] = R.drawable.blank_tile;
         }
@@ -99,10 +99,14 @@ public class BingoCard extends AppCompatActivity {
 
     //A player gets a bingo
     public void bingoClick(View v){
+        //pop-up for got a Bingo
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.sound);
+        mp.start();
         Intent intent = new Intent(this,GotBingo.class);
         startActivityForResult(intent,2);
     }
 
+    //Listening for when the grid view(Bingo Card) is clicked on
     private void listener (){
         final Button bingoButton = (Button) findViewById(R.id.BingoButton);
         bingoButton.setClickable(false);
@@ -112,11 +116,10 @@ public class BingoCard extends AppCompatActivity {
         xGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long itemId) {
                 iconClick(position,imageAdaptor);
-
-
             }
         });
     }
+    //When a icon on the bingo card is selected
     public void iconClick(int position, ImageAdaptor imageAdaptor) {
         final Button bingoButton = (Button) findViewById(R.id.BingoButton);
         ((BingoManager) this.getApplication()).card.toggleSelectedTile(position);
