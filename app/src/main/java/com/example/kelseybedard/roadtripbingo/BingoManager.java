@@ -71,11 +71,11 @@ public class BingoManager extends Application{
 
         //setting the type of game we are getting
         switch (bingoType){
-            case 1: gameType = gameTypes.get(0);
+            case 1: gameType = gameTypes.get(0); //line
                 break;
-            case 2: gameType = gameTypes.get(1);
+            case 2: gameType = gameTypes.get(1); //4 corners
                 break;
-            case 3: gameType = gameTypes.get(2);
+            case 3: gameType = gameTypes.get(2); //blackout
                 break;
         }
     }
